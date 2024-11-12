@@ -57,7 +57,16 @@ ol {
 
 .search-form__label-text {}
 
-.visually-hidden {}
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+} /*проверить и исправить, если нужно:)*/
+
 
 .search-form__textfield {}
 
@@ -71,7 +80,18 @@ ol {
 
 .search-form__pseudo-checkbox {}
 
-.button {}
+.button {
+  background-color: transparent;
+  color: #FFF;
+  border: 1px solid #FFF;
+  padding: 6px 73.5px;
+  font-size: 18px;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'Fira Sans Condensed', sans-serif;
+}
+
 
 .search-form__submit-button {}
 
