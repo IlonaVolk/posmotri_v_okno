@@ -16,6 +16,8 @@ html {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+  display: flex;
+  align-items: center; /* проверить св-во,чтобы правильно все расположить*/
 }
 
 h1,
@@ -37,27 +39,58 @@ ol {
   list-style: none;
 }
 
-.page {}
+.content {
+  display: flex; /* flex или grid ?*/
+  margin: 0 30px 0 30px;
+  width: 1140px;
+  height: 534px; /* нужны ли width и height?*/
+  inline-size: 100%; /* или прописать inline-size: 100%; ?*/
+}
 
-.content {}
+.result {
+  align-self: flex-end;
+  padding: 78px 30px 0 0;
+} /* СМОТРЕТЬ*/
 
-.result {}
+.result__video-container {
+  inline-size: 711px;
+  position: relative;
+  margin: 0 0 16px 0; /* проверить данные */
+}
 
-.result__video-container {}
+.result__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} /* СМОТРЕТЬ*/
 
-.result__video {}
-
-.search-form {}
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
 
 .search-form__fieldset {}
 
-.search-form__fieldset-title {}
+.search-form__fieldset-title {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  line-height: 21.6px;
+  color: #FFF;
+}
 
 .search-form__label {}
 
-.search-form__label-text {}
+.search-form__label-text {
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 21.6px;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  color: #FFF;
+  gap: 5px; /* нужен ли gap? он есть в figma*/
+}
 
-.visually-hidden {
+/*.visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   height: 1px;
@@ -65,18 +98,35 @@ ol {
   position: absolute;
   white-space: nowrap;
   width: 1px;
-} /*проверить и исправить, если нужно:)*/
+} */ /*проверить и исправить, если нужно:)*/
 
 
-.search-form__textfield {}
+.search-form__textfield {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  line-height: 21.6px;
+  color: #FFF; /* 70% */
+  background-color: transparent;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: #FFF;
+  inline-size: 225px;
+  gap: 10px; /* нужен ли gap? он есть в figma*/
+}
 
 .search-form__fieldset {}
 
-.search-form__fieldset-title {}
+.search-form__fieldset-title {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  line-height: 21.6px;
+  color: #FFF;
+}
 
 .search-form__checkbox-list {}
 
-.search-form__checkbox {}
+.search-form__checkbox {
+}
 
 .search-form__pseudo-checkbox {}
 
@@ -97,11 +147,21 @@ ol {
 
 .content__details {}
 
-.title {}
+.title {
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  font-size: 75px;
+  line-height: 70.5px;
+}
 
-.content__accent {}
+.content__accent {
+  color: #545050;
+}
 
-.content__list {}
+.content__list {
+  overflow-y: scroll;
+  block-size: 298px;
+}
 
 .preloader-template {}
 
