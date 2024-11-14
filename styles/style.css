@@ -18,6 +18,7 @@ html {
   background-color: #1b1919;
   display: flex;
   align-items: center; /* проверить св-во,чтобы правильно все расположить*/
+  justify-content: center; /* проверить св-во,чтобы правильно все расположить*/
 }
 
 h1,
@@ -40,36 +41,39 @@ ol {
 }
 
 .content {
-  display: flex; /* flex или grid ?*/
-  margin: 133px 30px 133px 30px;
-  width: 1140px;
-  height: 534px; /* нужны ли width и height?*/
-  inline-size: 100%; /* или прописать inline-size: 100%; ?*/
+  display: flex;
+  justify-content: center; /* проверить */
+  align-items: end; /* проверить */
+  margin: 0 30px 0 30px;
+ /* width: 1140px; */
+ /* height: 534px;  нужны ли width и height?*/
+ /* inline-size: 100%;  или прописать inline-size: 100%; ?*/
  /* background-color: grey; УБРАТЬ:) */ 
   gap: 30px;
 }
 
 .result {
   align-self: flex-end;
-  padding: 78px 30px 0 0;
-} /* СМОТРЕТЬ*/ /*НАДО или убрать padding: 78px 30px 0 0; ?*/
+} /* проверить */
 
 .result__video-container {
   inline-size: 711px;
   position: relative;
-  margin: 0 0 16px 0; /* проверить данные */
+  margin: 0 0 16px 0;
+  block-size: 386px;
 }
 
 .result__video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-} /* СМОТРЕТЬ*/
+}
 
 .search-form {
   display: flex;
-  align-items: center;
-  gap: 40px; /* сколько px нужно? */
+  justify-content: space-between;
+  align-items: center; /* посмотреть */
+ /* gap: 40px;  нужен ли gap? */
 }
 
 .search-form__fieldset {
@@ -86,31 +90,32 @@ ol {
   line-height: 21.6px;
   font-weight: 400px;
   color: #FFF;
-  width: 212px;
 }
 
 .search-form__label {
   width: fit-content;
   cursor: pointer;
   gap: 5px;
+  display: flex;
 }
 
 .search-form__label:has(:focus-visible) {
   border: 1px solid white;
+  padding: 1px;
 }
 
 .search-form__label-text {
   font-size: 18px;
-  font-weight: normal;
+  font-weight: 400;
   line-height: 21.6px;
   font-family: 'Fira Sans Condensed', sans-serif;
   color: #FFF;
-  gap: 5px; /* нужен ли gap? он есть в figma*/
+  cursor: pointer;
 }
 
 .search-form__label-text:hover {
   text-decoration: underline;
-}
+} /* ДОДЕЛАТЬ!!! */
 
 .visually-hidden {
   clip: rect(0 0 0 0);
@@ -122,11 +127,11 @@ ol {
   block-size: 1px;
 }
 
-
 .search-form__textfield {
   appearance: none;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
+  font-weight: 400;
   line-height: 21.6px;
   color: rgb(255 255 255 / 0.7); /* 70% */
   background-color: transparent;
@@ -137,7 +142,13 @@ ol {
   gap: 10px; /* нужен ли gap? он есть в figma*/
 }
 
-.search-form__fieldset {}
+.search-form__textfield:active {
+  border: 1px solid white;
+}
+
+.search-form__textfield:focus {
+  outline: none;
+}
 
 .search-form__fieldset-title {
   font-family: 'Fira Sans Condensed', sans-serif;
@@ -151,24 +162,20 @@ ol {
   gap: 15px;
 }
 
-.search-form__checkbox:checked {
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::before{
   display: block;
-  inline-size: 19px;
-  block-size: 19px;
+  content: '';
+  inline-size: 15px;
+  block-size: 15px;
   background-color: #FFF;
+  margin: 1px 0 0 1.5px;
 }
 
 .search-form__pseudo-checkbox {
   inline-size: 19px;
   block-size: 19px;
-  background-color: #FFF;
-} /* проверить, что нужно в данный класс:) */
-
-.search-form__pseudo-checkbox::before {
-  border: 1px solid #FFF;
-  inline-size: 19px;
-  block-size: 19px;
-} /* проверить, как сделать квадратики около "утро, день...":) */
+  border: 1px solid white;
+}
 
 .button {
   background-color: transparent;
@@ -177,10 +184,10 @@ ol {
   padding: 6px 73.5px;
   font-size: 18px;
   align-items: center;
-  font-weight: bold;
+  font-weight: 700;
   cursor: pointer;
   font-family: 'Fira Sans Condensed', sans-serif;
-}
+} /* нужны ли padding, align-items? */ /* добавить ли height? */
 
 .button:hover {
   text-decoration: underline;
@@ -191,11 +198,11 @@ ol {
 }
 
 .button:active {
-  background-color: rgb(15, 14, 14);
+  background-color: #545050;
 }
 
 .button:focus-visible {
-  outline: 2px solid #000;
+  outline: 1px solid #FFF;
   outline-offset: 0;
 }
 
@@ -203,7 +210,13 @@ ol {
   padding: 6px 73.5px 6px 73.5px;
 }
 
-.content__details {}
+.content__details {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  inline-size: 400px;
+  block-size: 100%;
+} /* grid или flex ?:)*/ /* нужны ли  inline-size: 400px; block-size: 100%; ? */
 
 .title {
   text-transform: uppercase;
@@ -218,49 +231,45 @@ ol {
 }
 
 .content__list {
+  display: flex;
+  flex-direction: column;
   scrollbar-width: none;
   overflow-y: scroll;
   block-size: 298px;
   position: relative;
-}
+  gap: 30px;
+} /* добавила flex :) */
 
-.preloader-template {}
-
-.preloader {}
-
-.preloader-chasing-squares {}
-
-.square {}
-
-.cards-list-item-template {}
-
-.content__list-item:not(:last-child) {
+/*.content__list-item:not(:last-child) {
   margin-top: 30px;
-} /* проверить))) по заданию: создать вертикальные отступы между элементами у всех, кроме последнего*/
+}  ПРОВЕРИТЬ))) по заданию: создать вертикальные отступы между элементами у всех, кроме последнего*/
 
 .content__card-link {
-  margin: 2px; /* margin или padding ?*/
-  width: 394px;
-  height: 107px; /* прописать  по размерам, пока что криво вглядит:)*/
+  margin: 2px;
   text-decoration: none;
   color: #FFF;
   display: block;
-} /* нужно ли остальное (кроме, text-decoration: none; и color: #FFF;) */
+}
 
 .content__card-link_current {
-  background-color:rgb(111, 105, 105);
+  background-color:#545050;
 }
-/* проверить в JS. Как выделить активный элемент? */
 
 .content__video-card {
+  padding: 2px;
   display: flex;
   justify-content: space-between;
 }
 
 .content__video-card-description-container {
-  flex-grow: 1;
-  text-overflow: ellipsis;
-} /* какое из свойств подойдет?.. */
+  gap: 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.content__video-card-description-container:hover {
+  text-decoration: underline;
+}
 
 .content__video-card-title {
   font-family: 'Oswald', sans-serif;
@@ -277,7 +286,6 @@ ol {
   line-height: 16.2px;
   font-size: 18px;
   font-family: 'Fira Sans Condensed', sans-serif;
-  padding: 6px 0 4px 2px;
 }
 
 .content__video-card-thumbnail {
@@ -286,15 +294,8 @@ ol {
   object-fit: cover;
 }
 
-.more-button-template {}
-
-.more-button {  
+.more-button {
+  padding: 6px 0 6px 0;
   background-color: transparent;
   inline-size: 100%;
-} /* нужно ли? :)*/
-
-.error-template {}
-
-.error {}
-
-.error__title {}
+}
