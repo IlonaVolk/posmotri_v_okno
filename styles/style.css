@@ -41,16 +41,18 @@ ol {
 
 .content {
   display: flex; /* flex или grid ?*/
-  margin: 0 30px 0 30px;
+  margin: 133px 30px 133px 30px;
   width: 1140px;
   height: 534px; /* нужны ли width и height?*/
   inline-size: 100%; /* или прописать inline-size: 100%; ?*/
+  background-color: grey; /* УБРАТЬ:) */
+  gap: 30px;
 }
 
 .result {
   align-self: flex-end;
   padding: 78px 30px 0 0;
-} /* СМОТРЕТЬ*/
+} /* СМОТРЕТЬ*/ /*НАДО или убрать padding: 78px 30px 0 0; ?*/
 
 .result__video-container {
   inline-size: 711px;
@@ -67,19 +69,31 @@ ol {
 .search-form {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 40px; /* сколько px нужно? */
 }
 
-.search-form__fieldset {}
+.search-form__fieldset {
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  inline-size: 100%;
+}
 
 .search-form__fieldset-title {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   line-height: 21.6px;
+  font-weight: 400px;
   color: #FFF;
+  width: 212px;
 }
 
-.search-form__label {}
+.search-form__label {
+  width: fit-content;
+  cursor: pointer;
+  gap: 5px;
+}
 
 .search-form__label-text {
   font-size: 18px;
@@ -90,18 +104,19 @@ ol {
   gap: 5px; /* нужен ли gap? он есть в figma*/
 }
 
-/*.visually-hidden {
+.visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
-  height: 1px;
   overflow: hidden;
   position: absolute;
   white-space: nowrap;
-  width: 1px;
-} */ /*проверить и исправить, если нужно:)*/
+  inline-size: 1px;
+  block-size: 1px;
+}
 
 
 .search-form__textfield {
+  appearance: none;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   line-height: 21.6px;
@@ -123,12 +138,23 @@ ol {
   color: #FFF;
 }
 
-.search-form__checkbox-list {}
-
-.search-form__checkbox {
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px;
 }
 
-.search-form__pseudo-checkbox {}
+.search-form__checkbox:checked {
+  display: block;
+  inline-size: 19px;
+  block-size: 19px;
+  background-color: #FFF;
+} 
+
+.search-form__pseudo-checkbox {
+  border: 1px solid #FFF;
+  inline-size: 19px;
+  block-size: 19px;
+} /* проверить, как сделать квадратики около "утро, день...":) */
 
 .button {
   background-color: transparent;
@@ -143,7 +169,9 @@ ol {
 }
 
 
-.search-form__submit-button {}
+.search-form__submit-button {
+  padding: 6px 73.5px 6px 73.5px;
+}
 
 .content__details {}
 
@@ -151,6 +179,7 @@ ol {
   text-transform: uppercase;
   font-family: 'Oswald', sans-serif;
   font-size: 75px;
+  font-weight: 700px;
   line-height: 70.5px;
 }
 
@@ -159,8 +188,10 @@ ol {
 }
 
 .content__list {
+  scrollbar-width: none;
   overflow-y: scroll;
   block-size: 298px;
+  position: relative;
 }
 
 .preloader-template {}
@@ -173,23 +204,60 @@ ol {
 
 .cards-list-item-template {}
 
-.content__list-item {}
+.content__list-item:not(:last-child) {
+  margin-top: 30px;
+} /* проверить))) по заданию: создать вертикальные отступы между элементами у всех, кроме последнего*/
 
-.content__card-link {}
+.content__card-link {
+  padding: 2px;
+  margin: 2px; /* margin или padding ?*/
+  width: 394px;
+  height: 107px; /* прописать  по размерам, пока что криво вглядит:)*/
+  text-decoration: none;
+  color: #FFF;
+  display: block;
+} /* нужно ли остальное (кроме, text-decoration: none; и color: #FFF;) */
 
-.content__video-card {}
+.content__video-card {
+  display: flex;
+  justify-content: space-between;
+}
 
-.content__video-card-description-container {}
+.content__video-card-description-container {
+  flex-grow: 1;
+  text-overflow: ellipsis;
+} /* какое из свойств подойдет?.. */
 
-.content__video-card-title {}
+.content__video-card-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700px;
+  font-size: 30px;
+  line-height: 30px;
+  text-transform: uppercase;
+  padding: 2px 0 6px 2px;
+  color: #FFF;
+}
 
-.content__video-card-description {}
+.content__video-card-description {
+  color: #FFF;
+  line-height: 16.2px;
+  font-size: 18px;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  padding: 6px 0 4px 2px;
+}
 
-.content__video-card-thumbnail {}
+.content__video-card-thumbnail {
+  width: 194px;
+  height: 103px;
+  object-fit: cover;
+}
 
 .more-button-template {}
 
-.more-button {}
+.more-button {  
+  background-color: transparent;
+  inline-size: 100%;
+} /* нужно ли? :)*/
 
 .error-template {}
 
