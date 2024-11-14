@@ -45,7 +45,7 @@ ol {
   width: 1140px;
   height: 534px; /* нужны ли width и height?*/
   inline-size: 100%; /* или прописать inline-size: 100%; ?*/
-  background-color: grey; /* УБРАТЬ:) */
+ /* background-color: grey; УБРАТЬ:) */ 
   gap: 30px;
 }
 
@@ -95,6 +95,10 @@ ol {
   gap: 5px;
 }
 
+.search-form__label:has(:focus-visible) {
+  border: 1px solid white;
+}
+
 .search-form__label-text {
   font-size: 18px;
   font-weight: normal;
@@ -102,6 +106,10 @@ ol {
   font-family: 'Fira Sans Condensed', sans-serif;
   color: #FFF;
   gap: 5px; /* нужен ли gap? он есть в figma*/
+}
+
+.search-form__label-text:hover {
+  text-decoration: underline;
 }
 
 .visually-hidden {
@@ -120,7 +128,7 @@ ol {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   line-height: 21.6px;
-  color: #FFF; /* 70% */
+  color: rgb(255 255 255 / 0.7); /* 70% */
   background-color: transparent;
   border-width: 1px 0;
   border-style: solid;
@@ -148,9 +156,15 @@ ol {
   inline-size: 19px;
   block-size: 19px;
   background-color: #FFF;
-} 
+}
 
 .search-form__pseudo-checkbox {
+  inline-size: 19px;
+  block-size: 19px;
+  background-color: #FFF;
+} /* проверить, что нужно в данный класс:) */
+
+.search-form__pseudo-checkbox::before {
   border: 1px solid #FFF;
   inline-size: 19px;
   block-size: 19px;
@@ -168,6 +182,22 @@ ol {
   font-family: 'Fira Sans Condensed', sans-serif;
 }
 
+.button:hover {
+  text-decoration: underline;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:active {
+  background-color: rgb(15, 14, 14);
+}
+
+.button:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 0;
+}
 
 .search-form__submit-button {
   padding: 6px 73.5px 6px 73.5px;
@@ -209,7 +239,6 @@ ol {
 } /* проверить))) по заданию: создать вертикальные отступы между элементами у всех, кроме последнего*/
 
 .content__card-link {
-  padding: 2px;
   margin: 2px; /* margin или padding ?*/
   width: 394px;
   height: 107px; /* прописать  по размерам, пока что криво вглядит:)*/
@@ -217,6 +246,11 @@ ol {
   color: #FFF;
   display: block;
 } /* нужно ли остальное (кроме, text-decoration: none; и color: #FFF;) */
+
+.content__card-link_current {
+  background-color:rgb(111, 105, 105);
+}
+/* проверить в JS. Как выделить активный элемент? */
 
 .content__video-card {
   display: flex;
