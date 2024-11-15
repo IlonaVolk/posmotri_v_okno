@@ -17,8 +17,8 @@ html {
   font-size: 18px;
   background-color: #1b1919;
   display: flex;
-  align-items: center; /* проверить св-во,чтобы правильно все расположить*/
-  justify-content: center; /* проверить св-во,чтобы правильно все расположить*/
+  align-items: center;
+  justify-content: center;
 }
 
 h1,
@@ -42,19 +42,15 @@ ol {
 
 .content {
   display: flex;
-  justify-content: center; /* проверить */
-  align-items: end; /* проверить */
-  margin: 0 30px 0 30px;
- /* width: 1140px; */
- /* height: 534px;  нужны ли width и height?*/
- /* inline-size: 100%;  или прописать inline-size: 100%; ?*/
- /* background-color: grey; УБРАТЬ:) */ 
+  justify-content: center;
+  align-items: end;
+  margin: 12px 30px 0 30px;
   gap: 30px;
 }
 
 .result {
   align-self: flex-end;
-} /* проверить */
+}
 
 .result__video-container {
   inline-size: 711px;
@@ -72,8 +68,9 @@ ol {
 .search-form {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* посмотреть */
- /* gap: 40px;  нужен ли gap? */
+  align-items: end;
+  margin-bottom: 2px;
+  gap: 40px;
 }
 
 .search-form__fieldset {
@@ -81,21 +78,22 @@ ol {
   display: flex;
   flex-direction: column;
   border: none;
-  inline-size: 100%;
 }
 
 .search-form__fieldset-title {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   line-height: 21.6px;
-  font-weight: 400px;
+  font-weight: 400;
   color: #FFF;
+  display: flex;
+  justify-content: start;
+  letter-spacing: -0.2px;
 }
 
 .search-form__label {
   width: fit-content;
   cursor: pointer;
-  gap: 5px;
   display: flex;
 }
 
@@ -111,11 +109,12 @@ ol {
   font-family: 'Fira Sans Condensed', sans-serif;
   color: #FFF;
   cursor: pointer;
+  padding: 0 4px 5px 0;
 }
 
 .search-form__label-text:hover {
   text-decoration: underline;
-} /* ДОДЕЛАТЬ!!! */
+}
 
 .visually-hidden {
   clip: rect(0 0 0 0);
@@ -133,13 +132,16 @@ ol {
   font-size: 18px;
   font-weight: 400;
   line-height: 21.6px;
-  color: rgb(255 255 255 / 0.7); /* 70% */
+  color: rgb(255 255 255 / 0.7);
   background-color: transparent;
   border-width: 1px 0;
   border-style: solid;
   border-color: #FFF;
   inline-size: 225px;
-  gap: 10px; /* нужен ли gap? он есть в figma*/
+  padding: 1px 0 2px 0;
+  word-spacing: -0.9px;
+  border-spacing: 10px 0;
+  cursor: text;
 }
 
 .search-form__textfield:active {
@@ -148,13 +150,6 @@ ol {
 
 .search-form__textfield:focus {
   outline: none;
-}
-
-.search-form__fieldset-title {
-  font-family: 'Fira Sans Condensed', sans-serif;
-  font-size: 18px;
-  line-height: 21.6px;
-  color: #FFF;
 }
 
 .search-form__checkbox-list {
@@ -168,13 +163,14 @@ ol {
   inline-size: 15px;
   block-size: 15px;
   background-color: #FFF;
-  margin: 1px 0 0 1.5px;
+  margin: 1px;
 }
 
 .search-form__pseudo-checkbox {
   inline-size: 19px;
   block-size: 19px;
   border: 1px solid white;
+  margin: 0 2px 0 0;
 }
 
 .button {
@@ -187,7 +183,7 @@ ol {
   font-weight: 700;
   cursor: pointer;
   font-family: 'Fira Sans Condensed', sans-serif;
-} /* нужны ли padding, align-items? */ /* добавить ли height? */
+}
 
 .button:hover {
   text-decoration: underline;
@@ -207,16 +203,18 @@ ol {
 }
 
 .search-form__submit-button {
-  padding: 6px 73.5px 6px 73.5px;
+  padding: 5.5px 72px 5.9px 73px;
+  margin-top: 10px;
+  margin-right: 1px;
 }
 
 .content__details {
   display: flex;
   flex-direction: column;
   gap: 26px;
-  inline-size: 400px;
+  width: 399px;
   block-size: 100%;
-} /* grid или flex ?:)*/ /* нужны ли  inline-size: 400px; block-size: 100%; ? */
+}
 
 .title {
   text-transform: uppercase;
@@ -224,6 +222,7 @@ ol {
   font-size: 75px;
   font-weight: 700px;
   line-height: 70.5px;
+  word-spacing: -3px;
 }
 
 .content__accent {
@@ -238,14 +237,9 @@ ol {
   block-size: 298px;
   position: relative;
   gap: 30px;
-} /* добавила flex :) */
-
-/*.content__list-item:not(:last-child) {
-  margin-top: 30px;
-}  ПРОВЕРИТЬ))) по заданию: создать вертикальные отступы между элементами у всех, кроме последнего*/
+}
 
 .content__card-link {
-  margin: 2px;
   text-decoration: none;
   color: #FFF;
   display: block;
@@ -277,7 +271,6 @@ ol {
   font-size: 30px;
   line-height: 30px;
   text-transform: uppercase;
-  padding: 2px 0 6px 2px;
   color: #FFF;
 }
 
