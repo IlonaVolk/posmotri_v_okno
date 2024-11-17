@@ -236,6 +236,7 @@ ol {
   overflow: auto;
   scrollbar-color: #343232 #545050;
   block-size: 298px;
+  inline-size: 404px;
   position: relative;
 }
 
